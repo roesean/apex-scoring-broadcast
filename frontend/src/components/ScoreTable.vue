@@ -38,7 +38,7 @@
             </div>
             <div v-else class="score-item score-name score-player-name padding-zero" :class="{ 'score-name-styled': styled }">
               <span v-if="mode == 'player' && showCharacters" class="character-wrap-player score-item" :class="{ 'character-wrap-styled': styled }">
-                <img v-for="character in score.characters || [score.characterName]" :key="character" height="70" :src="'/legend_icons/' + character + '.webp'">
+                <img v-for="character in score.characters.slice(0,3) || [score.characterName]" :key="character" height="70" :src="'/legend_icons/' + character + '.webp'">
               </span>
               <span class="fix-player-name" :style="{ 'top': showCharacters ? '-25px': '5px' }">{{cleanPlayerName(score.teamName, score.playerName) }}</span>
             </div>
