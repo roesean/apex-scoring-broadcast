@@ -40,7 +40,7 @@
               <span v-if="mode == 'player' && showCharacters" class="character-wrap-player score-item" :class="{ 'character-wrap-styled': styled }">
                 <img v-for="character in score.characters || [score.characterName]" :key="character" height="70" :src="'/legend_icons/' + character + '.webp'">
               </span>
-              <span class="fix-player-name">{{cleanPlayerName(score.teamName, score.playerName) }}</span>
+              <span class="fix-player-name" :style="{ 'top': showCharacters ? '-25px': '5px' }">{{cleanPlayerName(score.teamName, score.playerName) }}</span>
             </div>
             <div class="score-item score-value" :class="{ 'score-value-styled': styled }">
               <template v-if="display2">&nbsp;{{ score[display] }}&nbsp;</template>
@@ -179,7 +179,6 @@ export default {
 
 .fix-player-name {
   position: relative;
-  top: -25px;
   margin-left: 8px;
 }
 
@@ -255,12 +254,12 @@ export default {
 
 .score-index {
   width: 55px;
-  line-height: 70px;
+  line-height: 65px;
   text-align: center;
 }
 
 .score-name {
-  width: 420px;
+  width: 417px;
   padding-left: 10px;
   font-size: 25px;
 }
@@ -285,7 +284,7 @@ export default {
 .score-value {
   width: 100px;
   padding-right: 15px;
-  line-height: 70px;
+  line-height: 65px;
   text-align: right;
 }
 
